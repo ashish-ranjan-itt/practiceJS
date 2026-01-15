@@ -47,7 +47,10 @@ input.addEventListener("input", (e) => {
     if(value === "ashish") {
         fireWriteAshishEvent();
     }
+    localStorage.setItem("name",value)
 })
+
+console.log(localStorage.getItem("name"))
 
 const fireWriteAshishEvent = () => {
     const writeAshish = new CustomEvent("writeAshish", {
@@ -63,3 +66,16 @@ document.addEventListener("writeAshish",(e) => {
     pTag.textContent =  `Hello ${e.detail.name}!`;
     pTag.style.color = "red"
 })
+
+//event capturing
+
+mainContainer.addEventListener("click",() => {
+    console.log("Div clicked")
+},true)
+
+// buttonElement.addEventListener("click", () => {
+//     console.log("Button Clickeds")
+// })
+
+//event object`
+
